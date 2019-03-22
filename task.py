@@ -20,7 +20,6 @@
 #Show some usecases of your library in the code (print some things)
 #
 #When you are done upload this code to your github repository. 
-#The whole repository MUST be a fork from https://github.com/mwmajew/kol1_gr1.py
 #
 #Delete these comments before commit!
 #Good luck.
