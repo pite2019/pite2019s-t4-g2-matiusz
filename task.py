@@ -1,58 +1,37 @@
-#Write a library that contains a class that can represent any 2𝑥2 real matrice. 
-#Include two functions to calculate the sum and product of two matrices. 
-#Next, write a program that imports this library module and use it to perform calculations.
-#Examples:
-#
-# matrix_1 = Matrix(4,5,6,7)
-# matrix_2 = Matrix(2,2,2,1)
-#
-# matrix_3 = matrix_2.add(matrix_1)
-#
-#Try to expand your implementation as best as you can. 
-#Think of as many features as you can, and try implementing them.
-#(If you want you can expand implementation to NxN matrix.)
-#Make intelligent use of pythons syntactic sugar (overloading, iterators, generators, etc)
-#Most of all: CREATE GOOD, RELIABLE, READABLE CODE.
-#The goal of this task is for you to SHOW YOUR BEST python programming skills.
-#Impress everyone with your skills, show off with your code.
-#
-#Your program must be runnable with command "python task.py".
-#Show some usecases of your library in the code (print some things)
-#
-#When you are done upload this code to your github repository. 
-#
-#Delete these comments before commit!
-#Good luck.
-
 class MatrixSize2():
   def __init__(self, upleft, upright, downleft, downright):
-    self.val = [MatrixColumnSize2(upleft, downleft), MatrixColumnSize2(upright, downright)]
+    self.row = [MatrixColumnSize2(upleft, downleft), MatrixColumnSize2(upright, downright)]
+  
   @staticmethod
   def ZerosMatrix():
     return MatrixSize2(0,0,0,0)
   def add(self, matrix):
     for i in range(2):
       for j in range(2):
-         self.val[i][j] += matrix.val[i][j]
+         self.row[i].col[j] += matrix.row[i].col[j]
+    return self
   def product(self, matrix):
-    result = ZerosMatrix()
+    result = MatrixSize2.ZerosMatrix()
     for i in range(2):
       for j in range(2):
         for k in range(2):
-          result.val += self.val[k][j]*matrix.val[i][k]
+          result.row += self.row[k].col[j]*matrix.row[i].col[k]
     self = result
-def MatrixColumnSize2():
+    return self
+  def __str__(self):
+    return str(self.row[0].col[0])
+class MatrixColumnSize2():
   def __init__(self, first, second):
-    self.Column = [first, second]
+    self.col = [first, second]
 
     
-def Main()
+def Main():
   matrix1 = MatrixSize2(1,2,3,4)
   matrix2 = MatrixSize2(11,12,13,14)
   print(matrix1)
   print(matrix2)
-  print(matrix1+matrix2)
-  print(matrix1*matrix2)
+  print(matrix1.add(matrix2))
+  print(matrix1.product(matrix2))
 
   
 if __name__=="__main__":
