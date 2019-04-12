@@ -23,3 +23,25 @@
 #
 #Delete these comments before commit!
 #Good luck.
+
+def MatrixSize2():
+  def __init__(self, upleft, upright, downleft, downright):
+    self.val = [MatrixColumnSize2(upleft, downleft), MatrixColumnSize2(upright, downright)]
+  @static
+  def ZerosMatrix():
+    return MatrixSize2(0,0,0,0)
+  def add(self, matrix):
+    for i in range(2):
+      for j in range(2):
+         self.val[i][j] += matrix.val[i][j]
+  def product(self, matrix):
+    result = ZerosMatrix()
+    for i in range(2):
+      for j in range(2):
+        for k in range(2):
+          result.val += self.val[k][j]*matrix.val[i][k]
+    self = result
+def MatrixColumnSize2():
+  def __init__(self, first, second):
+    self.Column = [first, second]
+      
