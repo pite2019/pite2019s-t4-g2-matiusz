@@ -24,10 +24,10 @@
 #Delete these comments before commit!
 #Good luck.
 
-def MatrixSize2():
+class MatrixSize2():
   def __init__(self, upleft, upright, downleft, downright):
     self.val = [MatrixColumnSize2(upleft, downleft), MatrixColumnSize2(upright, downright)]
-  @static
+  @staticmethod
   def ZerosMatrix():
     return MatrixSize2(0,0,0,0)
   def add(self, matrix):
@@ -44,4 +44,16 @@ def MatrixSize2():
 def MatrixColumnSize2():
   def __init__(self, first, second):
     self.Column = [first, second]
-      
+
+    
+def Main()
+  matrix1 = MatrixSize2(1,2,3,4)
+  matrix2 = MatrixSize2(11,12,13,14)
+  print(matrix1)
+  print(matrix2)
+  print(matrix1+matrix2)
+  print(matrix1*matrix2)
+
+  
+if __name__=="__main__":
+  Main()
